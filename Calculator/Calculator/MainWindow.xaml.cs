@@ -48,6 +48,12 @@ namespace Calculator
         }
         private void clickedOperation(object? sender, DataEventArgs e)
         {
+            if(e.PressedButton == "CE")
+            {              
+                output = "";
+                outputTxt.Text = output;
+                temp = 0;  
+            }
             if(output == "") { return; }
 
             switch(e.PressedButton)

@@ -32,24 +32,10 @@ namespace Calculator.UserControls
                 btnName.Text = number;
             }
         }
-        private string color;
-        private BrushConverter bc = new BrushConverter();
-        public string Color
-        {
-            get { return color; }
-            set 
-            { 
-                color = value;
-                if((Brush)bc.ConvertFrom(color) != null)
-                    Background = (Brush)bc.ConvertFrom(color);
-            }
-        }
-
         public CustomButton()
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int.TryParse(Number, out int buttonIntValue);
