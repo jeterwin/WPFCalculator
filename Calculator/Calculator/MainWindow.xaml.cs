@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,94 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string output = "";
+        private string operation = "";
+        double temp = 0;
         public MainWindow()
         {
             InitializeComponent();
+            for(int i = 0; i <= 15; i++)
+            {
+                string btn = "btn" + i.ToString();
+                CustomButton? actualBtn = FindName(btn) as CustomButton;
+
+                if(actualBtn == null) { return; }
+
+                if(i <= 9)
+                    actualBtn.DataClicked += clickedData;
+                else
+                    actualBtn.DataClicked += clickedOperation;
+            }
+        }
+
+        private void clickedData(object? sender, DataEventArgs e)
+        {
+            output += e.PressedButton;
+            outputTxt.Text = output;
+        }
+        private void clickedOperation(object? sender, DataEventArgs e)
+        {
+            if(output == "") { return; }
+
+            switch(e.PressedButton)
+            {
+                case "+":
+                    operation = "+";
+                    temp = double.Parse(outputTxt.Text);
+                    output = "";
+                    break;
+                case "-":
+                    operation = "-";
+                    temp = double.Parse(outputTxt.Text);
+                    output = "";
+                    break;
+                case "/":
+                    operation = "/";
+                    temp = double.Parse(outputTxt.Text);
+                    output = "";
+                    break;
+                case "*":
+                    operation = "*";
+                    temp = double.Parse(outputTxt.Text);
+                    output = "";
+                    break;
+            }
+            //Calculate
+            if(e.PressedButton == "=")
+            {
+                var tempResult = "";
+                switch(operation)
+                {
+                    case "+":
+                        tempResult = (temp + double.Parse(output)).ToString();
+                        break;
+                    case "-":
+                        tempResult = (temp - double.Parse(output)).ToString();
+                        break;
+                    case "/":
+                        tempResult = (temp / double.Parse(output)).ToString();
+                        break;
+                    case "*":
+                        tempResult = (temp * double.Parse(output)).ToString();
+                        break;
+
+                    default:
+                        return;
+                }
+                temp = double.Parse(tempResult);
+                outputTxt.Text = tempResult;
+  
+            }
+        }
+    }
+    public class DataEventArgs : EventArgs
+    {
+        public string PressedButton;
+        public int PressedButtonInt;
+        public DataEventArgs(string pressedButton, int pressedButtonInt)
+        {
+            PressedButton = pressedButton;
+            PressedButtonInt = pressedButtonInt;
         }
     }
 }

@@ -4,9 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
+        xmlns:customButton="clr-namespace:Calculator.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="425" Width="310">
+    <Grid Background="#2d004f">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <TextBlock x:Name="outputTxt" FontSize="38" Foreground="White" Text="" Margin="10"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="SemiBold"></TextBlock>
+        <TextBlock Text="___________________" Foreground="White" FontSize="48" HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" Grid.ColumnSpan="4"></TextBlock>
+        <!-- Operations -->
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="/" x:Name="btn13" Grid.Row="1" Grid.Column="3" ></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="*" x:Name="btn12" Grid.Row="2" Grid.Column="3"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="-" x:Name="btn11" Grid.Row="3" Grid.Column="3"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="+" x:Name="btn10" Grid.Row="4" Grid.Column="3"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="=" x:Name="btn14" Grid.Row="4" Grid.Column="2" ></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#b3721d" Number="CE" x:Name="btn15" Grid.Row="4" Grid.Column="0" ></customButton:CustomButton>
+        
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="7" x:Name="btn7" Grid.Row="1" ></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="4" x:Name="btn4" Grid.Row="2"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="1" x:Name="btn1" Grid.Row="3"></customButton:CustomButton>
+
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="8" x:Name="btn8" Grid.Row="1" Grid.Column="1"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="5" x:Name="btn5" Grid.Row="2" Grid.Column="1"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="2" x:Name="btn2" Grid.Row="3" Grid.Column="1"></customButton:CustomButton>
+
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="9" x:Name="btn9" Grid.Row="1" Grid.Column="2"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="6" x:Name="btn6" Grid.Row="2" Grid.Column="2"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="3" x:Name="btn3" Grid.Row="3" Grid.Column="2"></customButton:CustomButton>
+        <customButton:CustomButton Margin="8" Color="#5F4C75" Number="0" x:Name="btn0" Grid.Row="4" Grid.Column="1"></customButton:CustomButton>
     </Grid>
 </Window>

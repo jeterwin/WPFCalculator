@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Erwin\Desktop\WPFCalculator\Calculator\Calculator\App.xaml
-11407045341
+2-123940862
 
-51868583911
+61104275982
 194-1325968647
-MainWindow.xaml;
+MainWindow.xaml;UserControls\CustomButton.xaml;
 
-False
+True
 
